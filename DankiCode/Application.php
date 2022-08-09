@@ -1,5 +1,10 @@
 <?php
+  namespace DankiCode;
 
-  class Applcation {}
+  class Application {
+    public function run() {
+      echo 'PS4 implementado';
+    }
+  }
 
 ?>
