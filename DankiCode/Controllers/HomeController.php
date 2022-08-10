@@ -9,7 +9,7 @@ class HomeController {
     if(isset($_SESSION['login'])) {
       MainView::render('home');
     } else {
-      MainView::render('register');
+      MainView::render('login');
     }
   }
 }
