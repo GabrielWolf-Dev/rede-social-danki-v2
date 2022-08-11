@@ -7,6 +7,11 @@ use DankiCode\Utils;
 
 class HomeController {
   public function index() {
+    if(isset($_GET['loggout'])) {
+      session_unset();
+      session_destroy();
+    }
+
     if(isset($_SESSION['login'])) {
       MainView::render('home');
     } else {

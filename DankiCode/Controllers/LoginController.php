@@ -29,6 +29,7 @@ class LoginController {
 
         if(Bcrypt::check($password, $passwordDb)) {
           $_SESSION['login'] = $dataDb['email'];
+          $_SESSION['name'] = $dataDb['name'];
 
           Utils::alert('Usuário logado com sucesso');
           Utils::redirect(INCLUDE_PATH);
