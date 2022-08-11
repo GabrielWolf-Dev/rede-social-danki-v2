@@ -10,7 +10,11 @@ use DankiCode\Models\UsersModel;
 
 class RegisterController {
   public function index() {
-    if(isset($_POST['signIn'])) {
+    if(isset($_SESSION['login'])) {
+      Utils::redirect(INCLUDE_PATH);
+    }
+
+    if(isset($_POST['register'])) {
       $name = $_POST['name'];
       $email = $_POST['email'];
       $password = $_POST['password'];

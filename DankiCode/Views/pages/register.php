@@ -49,7 +49,7 @@
           placeholder="Senha"
         />
       </fieldset>
-      <button name="signIn" class="btn-primary mtop-20">Registrar</button>
+      <button name="register" class="btn-primary mtop-20">Registrar</button>
       <a href="<?php echo INCLUDE_PATH ?>login" class="btn-secondary mtop-20">Já tenho uma conta</a>
     </form>
   </main>
