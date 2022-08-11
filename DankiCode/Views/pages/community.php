@@ -15,7 +15,7 @@
   <div class="grid">
     <?php include('includes/sidebar.php'); ?>
 
-    <main class="feed">
+    <main class="feed feed-account">
       <button class="feed-menu">
         <i class="fa fa-bars" aria-hidden="true"></i>
       </button>
@@ -23,6 +23,46 @@
       <button class="feed-menu-mobile">
         <i class="fa fa-bars" aria-hidden="true"></i>
       </button>
+
+      <section class="friends-box">
+        <h2 class="friends-box__title">Amigos</h2>
+
+        <ul class="list-items">
+          <li class="list-items__box">
+            <img
+              class="list-items__img"
+              src="<?php echo INCLUDE_PATH_STATIC ?>images/user.jpg"
+              alt="User example"
+            />
+
+            <div>
+              <h4 class="list-items__name">Guilherme C. Grillo</h4>
+              <p class="list-items__email">guilherme@gmail.com</p>
+            </div>
+          </li> 
+        </ul>
+      </section>
+
+      <section class="community-box">
+        <h2 class="community-box__title">Comunidade</h2>
+
+        <ul class="list-items">
+          <li class="list-items__box">
+            <img
+              class="list-items__img"
+              src="<?php echo INCLUDE_PATH_STATIC ?>images/user.jpg"
+              alt="User example"
+            />
+
+            <div>
+              <h4 class="list-items__name">Guilherme C. Grillo</h4>
+              <p class="list-items__email">guilherme@gmail.com</p>
+
+              <a class="list-items__link-solicitation" href="<?php echo INCLUDE_PATH ?>comunidade?reqFriendship=10">Solicitar Amizade</a>
+            </div>
+          </li>
+        </ul>
+      </section>
     </main>
   </div>
 
