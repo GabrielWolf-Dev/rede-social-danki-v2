@@ -30,23 +30,122 @@
         <ul>
           <li class="navbar__item-list navbar__item-list--active">
             <i class="fa fa-newspaper-o" aria-hidden="true"></i>
-            Feed
+            <a href="#">Feed</a>
           </li>
           <li class="navbar__item-list">
             <i class="fa fa-user" aria-hidden="true"></i>
-            Perfil
+            <a href="#">Perfil</a>
           </li>
           <li class="navbar__item-list">
             <i class="fa fa-users" aria-hidden="true"></i>
-            Amigos
+            <a href="#">Amigos</a>
           </li>
         </ul>
       </nav>
     </aside>
+
     <main class="feed">
-     <button class="feed-menu">
-      <i class="fa fa-bars" aria-hidden="true"></i>
-     </button>
+      <button class="feed-menu">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <button class="feed-menu-mobile">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <article class="feed__post">
+        <header class="feed__post__header">
+          <img class="feed__post__photo-user" src="<?php echo INCLUDE_PATH_STATIC ?>images/photo.png" alt="Image post" />
+
+          <div>
+            <h3 class="feed__post__name-user">Guilherme G. Grillo</h3>
+            <time class="feed__post__time-post">8:15, ontem</time>
+          </div>
+        </header>
+
+        <main class="feed__post__content">
+          <p class="feed__post__text">Dia de reunião com o time para relembrar melhores momentos em 2020!</p>
+
+          <div class="feed__post__content__box-imgs">
+            <img
+              class="feed__post__img-post"
+              src="<?php echo INCLUDE_PATH_STATIC ?>images/img-post.png"
+              alt="Photo Post"
+            />
+            <img
+              class="feed__post__img-post"
+              src="<?php echo INCLUDE_PATH_STATIC ?>images/img-post2.png"
+              alt="Photo Post"
+            />
+          </div>
+        </main>
+
+        <footer class="feed__footer">
+          <button class="feed__footer__button">
+            <img
+              class="feed__footer__icon"
+              src="<?php echo INCLUDE_PATH_STATIC ?>images/like.svg"
+              alt="Link Button"
+            />
+            <span class="feed__footer__text-btn">20</span>
+          </button>
+          <button class="feed__footer__button">
+            <img
+              class="feed__footer__icon"
+              src="<?php echo INCLUDE_PATH_STATIC ?>images/comment.svg"
+              alt="Comment Button"
+            />
+            <span class="feed__footer__text-btn">300</span>
+          </button>
+        </footer>
+      </article>
+
+      <article class="feed__post">
+        <header class="feed__post__header">
+          <img class="feed__post__photo-user" src="<?php echo INCLUDE_PATH_STATIC ?>images/photo.png" alt="Image post" />
+
+          <div>
+            <h3 class="feed__post__name-user">Guilherme G. Grillo</h3>
+            <time class="feed__post__time-post">8:15, ontem</time>
+          </div>
+        </header>
+
+        <main class="feed__post__content">
+          <p class="feed__post__text">Dia de reunião com o time para relembrar melhores momentos em 2020!</p>
+
+          <div class="feed__post__content__box-imgs">
+            <img
+              class="feed__post__img-post"
+              src="<?php echo INCLUDE_PATH_STATIC ?>images/img-post.png"
+              alt="Photo Post"
+            />
+            <img
+              class="feed__post__img-post"
+              src="<?php echo INCLUDE_PATH_STATIC ?>images/img-post2.png"
+              alt="Photo Post"
+            />
+          </div>
+        </main>
+
+        <footer class="feed__footer">
+          <button class="feed__footer__button">
+            <img
+              class="feed__footer__icon"
+              src="<?php echo INCLUDE_PATH_STATIC ?>images/like.svg"
+              alt="Link Button"
+            />
+            <span class="feed__footer__text-btn">20</span>
+          </button>
+          <button class="feed__footer__button">
+            <img
+              class="feed__footer__icon"
+              src="<?php echo INCLUDE_PATH_STATIC ?>images/comment.svg"
+              alt="Comment Button"
+            />
+            <span class="feed__footer__text-btn">300</span>
+          </button>
+        </footer>
+      </article>
     </main>
   </div>
 
