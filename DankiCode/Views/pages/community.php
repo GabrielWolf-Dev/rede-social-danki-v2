@@ -47,20 +47,33 @@
         <h2 class="community-box__title">Comunidade</h2>
 
         <ul class="list-items">
-          <li class="list-items__box">
-            <img
-              class="list-items__img"
-              src="<?php echo INCLUDE_PATH_STATIC ?>images/user.jpg"
-              alt="User example"
-            />
+          <?php
+            $community = \DankiCode\Models\UsersModel::listCommunity();
 
-            <div>
-              <h4 class="list-items__name">Guilherme C. Grillo</h4>
-              <p class="list-items__email">guilherme@gmail.com</p>
+            foreach ($community as $key => $value) {
 
-              <a class="list-items__link-solicitation" href="<?php echo INCLUDE_PATH ?>comunidade?reqFriendship=10">Solicitar Amizade</a>
-            </div>
-          </li>
+              if($value['id'] == $_SESSION['id']) {
+                continue;
+              }
+          ?>
+            <li class="list-items__box">
+              <img
+                class="list-items__img"
+                src="<?php echo INCLUDE_PATH_STATIC ?>images/user.jpg"
+                alt="User example"
+              />
+
+              <div>
+              <h4 class="list-items__name"><?php echo $value['name'] ?></h4>
+                <p class="list-items__email"><?php echo $value['email'] ?></p>
+                <?php if(\DankiCode\Models\UsersModel::existsReqFirendchip($value['id'])) { ?>
+                  <a class="list-items__link-solicitation" href="<?php echo INCLUDE_PATH ?>community?reqFriendship=<?php echo $value['id'] ?>">Solicitar Amizade</a>
+                <?php } else { ?>
+                  <a style="color: orange; border: 1px solid orange;" class="list-items__link-solicitation" href="javascript:void(0)">Pedido pendente</a>
+                <?php } ?>
+              </div>
+            </li>
+          <?php } ?>
         </ul>
       </section>
     </main>
