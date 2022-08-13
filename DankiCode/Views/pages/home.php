@@ -171,7 +171,13 @@
         <h2 class="feed__solicitations__title">Solicitações de amizade:</h2>
 
         <ul class="feed__solicitations__list">
-          <li class="feed__solicitations__user">
+          <?php
+            $pendingFriends = \DankiCode\Models\UsersModel::listPendingFriend();
+
+            foreach ($pendingFriends as $key => $value) {
+              $userInfo = \DankiCode\Models\UsersModel::getUserById($value['sended']);
+          ?>
+            <li class="feed__solicitations__user">
             <img
               class="feed__solicitations__user__photo"
               src="<?php echo INCLUDE_PATH_STATIC ?>images/photo.png"
@@ -179,48 +185,15 @@
             />
 
             <legend>
-              <h4 class="feed__solicitations__user__name">Otavio da Silva</h4>
+              <h4 class="feed__solicitations__user__name"><?php echo $userInfo['name'] ?></h4>
               <div>
-                <a class="feed__solicitations__user__link" href="#">Aceitar</a>
+                <a class="feed__solicitations__user__link" href="<?php INCLUDE_PATH ?>?acceptFriend=<?php echo $userInfo['id'] ?>">Aceitar</a>
                  | 
-                <a class="feed__solicitations__user__link" href="#">Recusar</a>
+                <a class="feed__solicitations__user__link" href="<?php INCLUDE_PATH ?>?refuseFriend=<?php echo $userInfo['id'] ?>">Recusar</a>
               </div>
             </legend>
-          </li>
-
-          <li class="feed__solicitations__user">
-            <img
-              class="feed__solicitations__user__photo"
-              src="<?php echo INCLUDE_PATH_STATIC ?>images/photo.png"
-              alt="Photo user solicitation"
-            />
-
-            <legend>
-              <h4 class="feed__solicitations__user__name">Otavio da Silva</h4>
-              <div>
-                <a class="feed__solicitations__user__link" href="#">Aceitar</a>
-                 | 
-                <a class="feed__solicitations__user__link" href="#">Recusar</a>
-              </div>
-            </legend>
-          </li>
-
-          <li class="feed__solicitations__user">
-            <img
-              class="feed__solicitations__user__photo"
-              src="<?php echo INCLUDE_PATH_STATIC ?>images/photo.png"
-              alt="Photo user solicitation"
-            />
-
-            <legend>
-              <h4 class="feed__solicitations__user__name">Otavio da Silva</h4>
-              <div>
-                <a class="feed__solicitations__user__link" href="#">Aceitar</a>
-                 | 
-                <a class="feed__solicitations__user__link" href="#">Recusar</a>
-              </div>
-            </legend>
-          </li>
+            </li>
+          <?php } ?>
         </ul>
       </aside>
     </main>

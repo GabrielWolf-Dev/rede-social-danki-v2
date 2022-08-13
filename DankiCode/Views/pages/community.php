@@ -49,8 +49,15 @@
         <ul class="list-items">
           <?php
             $community = \DankiCode\Models\UsersModel::listCommunity();
+            $pdo = \DankiCode\MySql::connect();
 
             foreach ($community as $key => $value) {
+              $verifyFriend = $pdo->prepare("SELECT * FROM friendchip WHERE (sended = ? AND received = ? AND status = 1) OR (sended = ? AND received = ? AND status = 1)");
+              $verifyFriend->execute([$value['id'], $_SESSION['id'], $_SESSION['id'], $value['id']]);
+
+              if($verifyFriend->rowCount() == 1) {
+                continue;
+              }
 
               if($value['id'] == $_SESSION['id']) {
                 continue;
