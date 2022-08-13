@@ -24,7 +24,23 @@
         <i class="fa fa-bars" aria-hidden="true"></i>
       </button>
       
-      <h1>Perfil</h1>
+      <h1>Perfil:</h1>
+      <div class="edit-account">
+        <?php
+          if($_SESSION['img'] == '') {
+            echo '<img src="'.INCLUDE_PATH_STATIC.'images/user.jpg" alt="User image" />';
+          } else {
+            echo '<img src="'.INCLUDE_PATH_STATIC.'images/'.$_SESSION['img'].'" alt="User image" />';
+          }
+        ?>
+        <form method="post" enctype="multipart/form-data">
+          <input type="text" name="name" value="<?php echo $_SESSION['name'] ?>" />
+          <input type="password" name="password" placeholder="Sua nova senha..." />
+          <input type="file" name="file" />
+
+          <button type="submit" name="save">Salvar</button>
+        </form>
+      <div>
     </main>
   </div>
 

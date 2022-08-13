@@ -31,6 +31,7 @@ class LoginController {
           $_SESSION['login'] = $dataDb['email'];
           $_SESSION['name'] = $dataDb['name'];
           $_SESSION['id'] = $dataDb['id'];
+          $_SESSION['img'] = $dataDb['img'];
 
           Utils::alert('Usuário logado com sucesso');
           Utils::redirect(INCLUDE_PATH);

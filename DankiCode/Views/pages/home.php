@@ -29,31 +29,50 @@
           <textarea required name="post_content" class="feed__posts__textarea" placeholder="No que você está pensando?"></textarea>
           <button class="feed__posts__btn-submit" name="post-feed" type="submit">Enviar</button>
         </form>
+        <?php
+          $retrievePosts = \DankiCode\Models\HomeModel::retrieveFriendsPosts();
+          foreach ($retrievePosts as $key => $value) {
+        ?>
         <article class="feed__post">
         <header class="feed__post__header">
-          <img class="feed__post__photo-user" src="<?php echo INCLUDE_PATH_STATIC ?>images/photo.png" alt="Image post" />
 
+        <?php
+
+if(!isset($value['me']) && $value['img'] == ''){
+
+?>
+
+<img class="feed__post__photo-user" src="<?php echo INCLUDE_PATH_STATIC ?>images/user.jpg" />
+
+<?php }else if(!isset($value['me'])){ ?>
+
+<img class="feed__post__photo-user" src="<?php echo INCLUDE_PATH_STATIC ?>images/<?php echo $value['img'] ?>" />
+
+<?php } ?>
+
+
+
+<?php
+
+if(isset($value['me']) && $_SESSION['img'] == ''){
+
+?>
+
+<img class="feed__post__photo-user" src="<?php echo INCLUDE_PATH_STATIC ?>images/user.jpg" />
+
+<?php }else if(isset($value['me'])){ ?>
+
+<img class="feed__post__photo-user" src="<?php echo INCLUDE_PATH_STATIC ?>images/<?php echo $_SESSION['img'] ?>" />
+
+<?php } ?>
           <div>
-            <h3 class="feed__post__name-user">Guilherme G. Grillo</h3>
-            <time class="feed__post__time-post">8:15, ontem</time>
+            <h3 class="feed__post__name-user"><?php echo $value['user'] ?></h3>
+            <time class="feed__post__time-post"><?php echo date('d/m/Y H:i:s', strtotime($value['date'])); ?></time>
           </div>
         </header>
-
+        
         <main class="feed__post__content">
-          <p class="feed__post__text">Dia de reunião com o time para relembrar melhores momentos em 2020!</p>
-
-          <div class="feed__post__content__box-imgs">
-            <img
-              class="feed__post__img-post"
-              src="<?php echo INCLUDE_PATH_STATIC ?>images/img-post.png"
-              alt="Photo Post"
-            />
-            <img
-              class="feed__post__img-post"
-              src="<?php echo INCLUDE_PATH_STATIC ?>images/img-post2.png"
-              alt="Photo Post"
-            />
-          </div>
+          <p class="feed__post__text"><?php echo $value['content'] ?></p>
         </main>
 
         <footer class="feed__footer">
@@ -75,6 +94,7 @@
           </button>
         </footer>
         </article>
+        <?php } ?>
       </div>
 
       <aside class="feed__solicitations">
