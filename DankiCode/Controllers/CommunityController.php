@@ -17,9 +17,11 @@ class CommunityController {
       if(isset($_GET['reqFriendship'])) {
         $idFor = (int) $_GET['reqFriendship'];
         if(UsersModel::reqFriendship($idFor)) {
-          Utils::alert('Amizado solicitada com sucesso!');
+          Utils::alert('Amizade solicitada com sucesso!');
+          Utils::redirect(INCLUDE_PATH.'community');
         } else {
           Utils::alert('Ocorreu um erro ao solicitar a amizade...');
+          Utils::redirect(INCLUDE_PATH.'community');
         }
       }
 

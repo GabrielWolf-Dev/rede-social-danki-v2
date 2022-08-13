@@ -85,4 +85,28 @@ class UsersModel {
       }
     }
   }
+
+  public static function listFriends() {
+    $pdo = MySql::connect();
+    $friendchips = $pdo->prepare("SELECT * FROM friendchip WHERE (sended = ? AND status = 1) OR (received = ? AND status = 1)");
+    $friendchips->execute([$_SESSION['id'], $_SESSION['id']]);
+    $friendchips = $friendchips->fetchAll();
+
+    $confimedFriends = [];
+    foreach ($friendchips as $key => $value) {
+      if($value['sended' == $_SESSION['id']]) {
+        $confimedFriends[] = $value['received'];
+      } else {
+        $confimedFriends[] = $value['sended'];
+      }
+    }
+
+    $listFriends = [];
+    foreach ($confimedFriends as $key => $value) {
+      $listFriends[$key]['name'] = self::getUserById($value)['name'];
+      $listFriends[$key]['email'] = self::getUserById($value)['email'];
+    }
+
+    return $listFriends;
+  }
 }

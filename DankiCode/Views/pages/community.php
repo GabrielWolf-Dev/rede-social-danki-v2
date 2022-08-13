@@ -28,7 +28,12 @@
         <h2 class="friends-box__title">Amigos</h2>
 
         <ul class="list-items">
-          <li class="list-items__box">
+          <?php
+            $listFriends = \DankiCode\Models\UsersModel::listFriends();
+            foreach ($listFriends as $key => $value) {
+            
+          ?>
+            <li class="list-items__box">
             <img
               class="list-items__img"
               src="<?php echo INCLUDE_PATH_STATIC ?>images/user.jpg"
@@ -36,10 +41,11 @@
             />
 
             <div>
-              <h4 class="list-items__name">Guilherme C. Grillo</h4>
-              <p class="list-items__email">guilherme@gmail.com</p>
+              <h4 class="list-items__name"><?php echo $value['name'] ?></h4>
+              <p class="list-items__email"><?php echo $value['email'] ?></p>
             </div>
-          </li> 
+            </li>
+          <?php } ?>
         </ul>
       </section>
 
