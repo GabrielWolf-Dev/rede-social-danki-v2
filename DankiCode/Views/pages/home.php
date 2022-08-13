@@ -25,100 +25,10 @@
       </button>
 
       <div class="feed__posts">
-        <article class="feed__post">
-        <header class="feed__post__header">
-          <img class="feed__post__photo-user" src="<?php echo INCLUDE_PATH_STATIC ?>images/photo.png" alt="Image post" />
-
-          <div>
-            <h3 class="feed__post__name-user">Guilherme G. Grillo</h3>
-            <time class="feed__post__time-post">8:15, ontem</time>
-          </div>
-        </header>
-
-        <main class="feed__post__content">
-          <p class="feed__post__text">Dia de reunião com o time para relembrar melhores momentos em 2020!</p>
-
-          <div class="feed__post__content__box-imgs">
-            <img
-              class="feed__post__img-post"
-              src="<?php echo INCLUDE_PATH_STATIC ?>images/img-post.png"
-              alt="Photo Post"
-            />
-            <img
-              class="feed__post__img-post"
-              src="<?php echo INCLUDE_PATH_STATIC ?>images/img-post2.png"
-              alt="Photo Post"
-            />
-          </div>
-        </main>
-
-        <footer class="feed__footer">
-          <button class="feed__footer__button">
-            <img
-              class="feed__footer__icon"
-              src="<?php echo INCLUDE_PATH_STATIC ?>images/like.svg"
-              alt="Link Button"
-            />
-            <span class="feed__footer__text-btn">20</span>
-          </button>
-          <button class="feed__footer__button">
-            <img
-              class="feed__footer__icon"
-              src="<?php echo INCLUDE_PATH_STATIC ?>images/comment.svg"
-              alt="Comment Button"
-            />
-            <span class="feed__footer__text-btn">300</span>
-          </button>
-        </footer>
-        </article>
-
-        <article class="feed__post">
-        <header class="feed__post__header">
-          <img class="feed__post__photo-user" src="<?php echo INCLUDE_PATH_STATIC ?>images/photo.png" alt="Image post" />
-
-          <div>
-            <h3 class="feed__post__name-user">Guilherme G. Grillo</h3>
-            <time class="feed__post__time-post">8:15, ontem</time>
-          </div>
-        </header>
-
-        <main class="feed__post__content">
-          <p class="feed__post__text">Dia de reunião com o time para relembrar melhores momentos em 2020!</p>
-
-          <div class="feed__post__content__box-imgs">
-            <img
-              class="feed__post__img-post"
-              src="<?php echo INCLUDE_PATH_STATIC ?>images/img-post.png"
-              alt="Photo Post"
-            />
-            <img
-              class="feed__post__img-post"
-              src="<?php echo INCLUDE_PATH_STATIC ?>images/img-post2.png"
-              alt="Photo Post"
-            />
-          </div>
-        </main>
-
-        <footer class="feed__footer">
-          <button class="feed__footer__button">
-            <img
-              class="feed__footer__icon"
-              src="<?php echo INCLUDE_PATH_STATIC ?>images/like.svg"
-              alt="Link Button"
-            />
-            <span class="feed__footer__text-btn">20</span>
-          </button>
-          <button class="feed__footer__button">
-            <img
-              class="feed__footer__icon"
-              src="<?php echo INCLUDE_PATH_STATIC ?>images/comment.svg"
-              alt="Comment Button"
-            />
-            <span class="feed__footer__text-btn">300</span>
-          </button>
-        </footer>
-        </article>
-
+        <form class="feed__posts__form-post" method="post">
+          <textarea required name="post_content" class="feed__posts__textarea" placeholder="No que você está pensando?"></textarea>
+          <button class="feed__posts__btn-submit" name="post-feed" type="submit">Enviar</button>
+        </form>
         <article class="feed__post">
         <header class="feed__post__header">
           <img class="feed__post__photo-user" src="<?php echo INCLUDE_PATH_STATIC ?>images/photo.png" alt="Image post" />
